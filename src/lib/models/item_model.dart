@@ -15,14 +15,14 @@ class ItemModel
   String user;
   String title;
   String thumbImageUrl;
-  String fullImageUrl;
+  String regularImageUrl;
   ItemModel.fromJson(Map<String, dynamic> json)
   {
     id = json["id"];
     user = json["user"]["name"];
     title = json["description"] != null ? trimTitle(json["description"]) : "Unnamed photo";
     thumbImageUrl = json["urls"]["thumb"];
-    fullImageUrl = json["urls"]["full"];
+    regularImageUrl = json["urls"]["regular"];
   }
 
   static String trimTitle(String str)

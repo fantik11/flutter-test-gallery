@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/screen/gallery.dart';
+import 'widgets/screen/view.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/gallery",
       routes: {
-        Gallery.routeName : (context) => Gallery(title: "Gallery screen",)
+        Gallery.routeName : (context) => Gallery(title: "Gallery screen",), 
+        ViewPhoto.routeName : (context) => ViewPhoto(),
       },
     );
   }
