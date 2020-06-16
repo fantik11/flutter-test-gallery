@@ -6,11 +6,11 @@ import 'package:src/utils/constants.dart';
 
 class PhotoApiProvider
 {
-  http.Client client = http.Client();
-  String _apiKey = Constants.CLIENT_API;
-  
-  Future<ResultModel> fetchPhotos({int page = 1, int itemsPerPage = 15}) async
+  static Future<ResultModel> fetchPhotos({int page = 1, int itemsPerPage = 15}) async
   {
+    http.Client client = http.Client();
+    String _apiKey = Constants.CLIENT_API;
+    
     String url = Constants.URL_TO_PHOTOS+"?client_id=$_apiKey&page=$page&per_page=$itemsPerPage";
     http.Response response = await client.get(url);
     if(response.statusCode == 200)

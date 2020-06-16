@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:src/widgets/ui/photo_scroller.dart';
 
 class Gallery extends StatefulWidget {
   Gallery({Key key, this.title}) : super(key: key);
@@ -19,6 +20,7 @@ class _GalleryState extends State<Gallery> {
           widget.title,
         ),
       ),
+      body: Scroller(),
     );
   }
 }
