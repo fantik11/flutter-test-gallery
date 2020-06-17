@@ -19,7 +19,7 @@ class ViewPhoto extends StatelessWidget {
           tag: args.id,
           child: FadeInImage.assetNetwork(
             placeholder: "assets/images/image_placeholder.png",
-            image:args.regularImageUrl,
+            image: args.regularImageUrl,
             fit: BoxFit.fitHeight,
           ),
         ),

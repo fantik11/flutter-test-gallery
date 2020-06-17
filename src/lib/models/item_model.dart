@@ -1,32 +1,29 @@
-class ResultModel
-{
+class ResultModel {
   List<ItemModel> items = [];
-  ResultModel.fromJson(List<dynamic> json)
-  {
+  ResultModel.fromJson(List<dynamic> json) {
     for (var i = 0; i < json.length; i++) {
       items.add(ItemModel.fromJson(json[i]));
     }
   }
 }
 
-class ItemModel
-{
+class ItemModel {
   String id;
   String user;
   String title;
   String thumbImageUrl;
   String regularImageUrl;
-  ItemModel.fromJson(Map<String, dynamic> json)
-  {
+  ItemModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     user = json["user"]["name"];
-    title = json["description"] != null ? trimTitle(json["description"]) : "Unnamed photo";
+    title = json["description"] != null
+        ? trimTitle(json["description"])
+        : "Unnamed photo";
     thumbImageUrl = json["urls"]["thumb"];
     regularImageUrl = json["urls"]["regular"];
   }
 
-  static String trimTitle(String str)
-  {
+  static String trimTitle(String str) {
     return str.replaceAll("\r", "").replaceAll("\n", "").replaceAll("\t", "");
   }
 }

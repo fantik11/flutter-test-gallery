@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:src/providers/photo_api_provider.dart';
 import 'package:src/models/item_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:src/widgets/ui/item_card.dart';
+import 'package:src/ui/components/item_card.dart';
 
 class Scroller extends StatefulWidget {
   Scroller({Key key}) : super(key: key);
@@ -28,16 +28,18 @@ class _ScrollerState extends State<Scroller> {
   void _scrollListener() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 100) {
-      _page++;
-      PhotoApiProvider.fetchPhotos(page: _page).then((value) {
-        setState(() {
-          _items.addAll(value.items);
-        });
-      });
+      _loadMorePhotos();
     }
   }
 
-  void _loadMorePhotos() {}
+  void _loadMorePhotos() {
+    _page++;
+    PhotoApiProvider.fetchPhotos(page: _page).then((value) {
+      setState(() {
+        _items.addAll(value.items);
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class _ScrollerState extends State<Scroller> {
             return ListView.builder(
               controller: _scrollController,
               itemBuilder: (BuildContext context, int index) {
-                return ListCard(
+                return ItemCard(
                   model: _items[index],
                 );
               },
