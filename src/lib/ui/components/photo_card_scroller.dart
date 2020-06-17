@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:src/providers/photo_api_provider.dart';
 import 'package:src/models/photo_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:src/ui/components/item_card.dart';
+import 'package:src/ui/components/photo_card.dart';
 
 class Scroller extends StatefulWidget {
   Scroller({Key key}) : super(key: key);
