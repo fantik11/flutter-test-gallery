@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:src/ui/components/item_scroller.dart';
+import 'package:src/ui/components/photo_card_scroller.dart';
 
 class Gallery extends StatelessWidget {
   Gallery({Key key}) : super(key: key);

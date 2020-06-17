@@ -1,4 +1,3 @@
-class ClientId
-{
+class ClientId{
   static const clientID = "***";
 }

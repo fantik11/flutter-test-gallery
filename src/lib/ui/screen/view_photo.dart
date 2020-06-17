@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:src/models/item_model.dart';
+import 'package:src/models/photo_model.dart';
 
 class ViewPhoto extends StatelessWidget {
   const ViewPhoto({Key key}) : super(key: key);
@@ -7,7 +7,7 @@ class ViewPhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ItemModel args = ModalRoute.of(context).settings.arguments;
+    final PhotoModel args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(

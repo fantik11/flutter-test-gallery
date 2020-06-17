@@ -1,19 +1,19 @@
 class ResultModel {
-  List<ItemModel> items = [];
+  List<PhotoModel> items = [];
   ResultModel.fromJson(List<dynamic> json) {
     for (var i = 0; i < json.length; i++) {
-      items.add(ItemModel.fromJson(json[i]));
+      items.add(PhotoModel.fromJson(json[i]));
     }
   }
 }
 
-class ItemModel {
+class PhotoModel {
   String id;
   String user;
   String title;
   String thumbImageUrl;
   String regularImageUrl;
-  ItemModel.fromJson(Map<String, dynamic> json) {
+  PhotoModel.fromJson(Map<String, dynamic> json) {
     id = json["id"];
     user = json["user"]["name"];
     title = json["description"] != null

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:src/models/item_model.dart';
+import 'package:src/models/photo_model.dart';
 import 'package:src/ui/screen/view_photo.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({Key key, this.model}) : super(key: key);
 
-  final ItemModel model;
+  final PhotoModel model;
   
 
   void pushPhoto(BuildContext context) {

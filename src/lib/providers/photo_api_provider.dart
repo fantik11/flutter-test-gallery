@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:src/models/item_model.dart';
+import 'package:src/models/photo_model.dart';
 import 'package:src/utils/constants.dart';
 
 class PhotoApiProvider {
