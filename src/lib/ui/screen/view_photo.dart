@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:src/models/photo_model.dart';
 
 class ViewPhoto extends StatelessWidget {
-  const ViewPhoto({Key key}) : super(key: key);
+  const ViewPhoto({Key key, @required this.model}) : super(key: key);
   static const routeName = "/photo";
+  final PhotoModel model;
 
   @override
   Widget build(BuildContext context) {
-    final PhotoModel args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          args.title,
+          model.title,
         ),
       ),
       body: Center(
         child: Hero(
-          tag: args.id,
+          tag: model.id,
           child: FadeInImage.assetNetwork(
             placeholder: "assets/images/image_placeholder.png",
-            image: args.regularImageUrl,
+            image: model.regularImageUrl,
             fit: BoxFit.fitHeight,
           ),
         ),
