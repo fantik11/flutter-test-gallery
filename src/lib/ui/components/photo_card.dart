@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:src/models/photo_model.dart';
 import 'package:src/ui/screen/view_photo.dart';
 
-class ItemCard extends StatelessWidget {
-  const ItemCard({Key key, this.model}) : super(key: key);
+class PhotoCard extends StatelessWidget {
+  const PhotoCard({Key key, this.model}) : super(key: key);
 
   final PhotoModel model;
   

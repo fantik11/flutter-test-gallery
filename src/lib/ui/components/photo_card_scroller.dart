@@ -51,7 +51,7 @@ class _ScrollerState extends State<Scroller> {
             return ListView.builder(
               controller: _scrollController,
               itemBuilder: (BuildContext context, int index) {
-                return ItemCard(
+                return PhotoCard(
                   model: _items[index],
                 );
               },
