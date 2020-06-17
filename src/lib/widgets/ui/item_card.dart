@@ -27,8 +27,9 @@ class ListCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(2),
             child: Hero(
               tag: model.id,
-              child: Image.network(
-                model.regularImageUrl,
+              child: FadeInImage.assetNetwork(
+                placeholder: "assets/images/image_placeholder.png",
+                image: model.regularImageUrl,
                 fit: BoxFit.cover,
                 width: 100,
                 height: 60,

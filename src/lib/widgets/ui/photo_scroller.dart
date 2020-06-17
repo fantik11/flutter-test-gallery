@@ -13,13 +13,31 @@ class Scroller extends StatefulWidget {
 
 class _ScrollerState extends State<Scroller> {
   List<ItemModel> _items = [];
-  final Future<ResultModel> loadingFuture = PhotoApiProvider.fetchPhotos();
+  ScrollController _scrollController = new ScrollController();
+  int _page = 1;
+  final Future<ResultModel> loadingFuture =
+      PhotoApiProvider.fetchPhotos(page: 1);
 
   @override
   void initState() {
     loadingFuture.then((value) => _items.addAll(value.items));
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
+
+  void _scrollListener() {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 100) {
+      _page++;
+      PhotoApiProvider.fetchPhotos(page: _page).then((value) {
+        setState(() {
+          _items.addAll(value.items);
+        });
+      });
+    }
+  }
+
+  void _loadMorePhotos() {}
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +47,11 @@ class _ScrollerState extends State<Scroller> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return ListView.builder(
+              controller: _scrollController,
               itemBuilder: (BuildContext context, int index) {
-                return ListCard(model: _items[index],);
+                return ListCard(
+                  model: _items[index],
+                );
               },
               itemCount: _items.length,
             );
